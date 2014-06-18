@@ -1,0 +1,219 @@
+/*
+Copyright (c) 2014 Nikhil Benesch <nikhil.benesch@gmail.com>
+
+This file is part of mun.track.
+
+mun.track is free software: you can redistribute it and/or modify it under the
+terms of the GNU Affero General Public License version 3 as published by the
+Free Software Foundation.
+
+mun.track is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with mun.track. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+* {
+	margin: 0; padding: 0;
+}
+
+body {
+	background: #222;
+	color: #fff;
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+h1 {
+  background: #0b3e6f url(images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png);
+	border-bottom: 1px solid #000;
+	height: 70px;
+	font-size: 60px;
+	padding: 7px 15px;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+#wrap {
+	margin: 20px;
+}
+
+#left {
+	float: left;
+	margin: 0;
+	width: 375px;
+}
+
+#left .widget, #left dd, #left dt {
+	font-size: 26px;
+}
+
+#left .widget h2 {
+	font-size: 30px;
+}
+
+#right{
+	margin-left: 400px;
+}
+
+.widget {
+	background: #111 url(images/ui-bg_gloss-wave_20_111111_500x100.png) repeat-x;
+	border: 1px solid #000;
+	border-radius: 4px;
+	font-size: 36px;
+	margin: 0 0 15px;
+	padding: 5px;
+}
+
+.widget h2 {
+	background: url(images/ui-bg_dots-medium_15_0b3e6f_4x4.png);
+	border-radius: 4px;
+	font-size: 40px;
+	margin: 2px 2px 8px;
+	padding: 5px;
+	text-align: center;
+}
+
+dl.info {
+	float: left;
+	width: 100%;
+}
+
+dt {
+	float: left;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 39px;
+	padding-right: 6%;
+	text-align: right;
+	width: 45%;
+}
+
+dd {
+	float: left;
+	font-size: 36px;
+	line-height: 39px;
+	width: 45%;
+}
+
+#speakers ul {
+	list-style-type: none;
+	height: 450px;
+	overflow: auto;
+}
+
+#speakers ul.list0, #speakers ul.list1 {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+}
+
+#speakers ul.list2 {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#speakers ul ul {
+	float: left;
+	width: 50%;
+}
+
+#speakers ul li {
+	font-size: 36px;
+}
+
+#speakers ul li.strike {
+	text-decoration: line-through;
+}
+
+#speakers ul li.bold {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+#speakers ul li.current {
+	color: #75abff;
+	font-weight: bold;
+}
+
+
+#controller {
+	background: #191919;
+	bottom: 0;
+	font-family: monospace;
+	height: 40px;
+	padding: 3px 3px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+}
+
+#console {
+	color: #fff;
+	height: 20px;
+	width: 100%;
+}
+
+#controller input {
+	background: #191919;
+	border: none;
+	bottom: 3px;
+	color: #ffffff;
+	font-family: monospace;
+	font-size: 12px;
+	position: absolute;
+	width: 100%;
+}
+
+#vote-results {
+	font-size: 80px;
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+
+#vote-results.fails {
+	color: red;
+}
+
+#vote-results.ties {
+	color: yellow;
+}
+
+#vote-results.passes {
+	color: #1d4c7a;
+}
+
+dd.small {
+	font-size: .8em;
+}
+
+.clear {
+	clear: both;
+}
+
+a, a:active, a:hover {
+	color: white;
+}
+
+table code {
+	font-weight: bold;
+}
+
+.ui-widget {
+	font-size: 13px;
+}
+
+.big .ui-dialog-titlebar {
+	display: none;
+}
+
+.big {
+	font-size: 48px;
+	font-weight: bold;
+	text-align: center;
+}

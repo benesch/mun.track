@@ -1,0 +1,129 @@
+<!--
+Copyright (c) 2014 Nikhil Benesch <nikhil.benesch@gmail.com>
+
+This file is part of mun.track.
+
+mun.track is free software: you can redistribute it and/or modify it under the
+terms of the GNU Affero General Public License version 3 as published by the
+Free Software Foundation.
+
+mun.track is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with mun.track. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>mun.track</title>
+  <link type="text/css" href="css/dotluv.css" rel="stylesheet" />
+  <link type="text/css" href="css/muntrack.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.ui.js"></script>
+  <script type="text/javascript" src="js/jquery.scrollTo.js"></script>
+  <script type="text/javascript" src="js/cookie.js"></script>
+  <script type="text/javascript" src="http://mobile.muntrackapp.com/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/muntrack.js"></script>
+</head>
+<body>
+  <h1 id="title">mun.track</h1>
+  <div id="wrap">
+    <div id="left">
+      <div class="widget">
+        <h2>Delegate Count</h2>
+        <dl class="info">
+          <dt>Quorum</dt><dd id="info-quorum"></dd>
+          <dt>Majority</dt><dd id="info-majority"></dd>
+          <dt>2/3 Majority</dt><dd id="info-thirdmajority"></dd>
+          <dt>20 Percent</dt><dd id="info-20percent"></dd>
+          <dt>10 Percent</dt><dd id="info-10percent"></dd>
+        </dl>
+        <div class="clear"></div>
+      </div>
+
+      <div class="widget">
+        <h2>Speaking Parameters</h2>
+        <dl class="info">
+          <dt>Time</dt><dd id="info-time"></dd>
+          <dt>Extensions</dt><dd id="info-extensions"></dd>
+        </dl>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div id="right">
+
+      <div id="speakers" class="widget">
+        <h2 id="speaker-list-title">Speakers List</h2>
+        <ul id="speaker-list">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="help" title="Help">
+    <p>mun.track functions much like a standard command line. Type the following commands in the textbox at the bottom of the page, and follow the relevant prompts.</p>
+    <br>
+    <table style="width: 100%">
+      <tr><td><code>help</code></td><td>Display this help dialog</td></tr>
+      <tr><td><code>settitle</code></td><td>Set title</td></tr>
+      <tr><td><code>setquorum</code></td><td>Set quorum</td></tr>
+      <tr><td><code>settime</code></td><td>Set speaking time</td></tr>
+      <tr><td><code>setexts</code></td><td>Set speaking extensions</td></tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr><td><code>add</code></td><td>Add delegates to current speakers list</td></tr>
+      <tr><td><code>insert</code></td><td>Insert delegate into current speakers list</td></tr>
+      <tr><td><code>change</code></td><td>Change delegate in current speakers list</td></tr>
+      <tr><td><code>flip</code></td><td>Flip delegates in current speakers list</td></tr>
+      <tr><td><code>delete</code></td><td>Remove delegates from current speakerslist</td></tr>
+      <tr><td><code>next</code></td><td>Advance speakers list</td></tr>
+      <tr><td><code>prev</code></td><td>Return to previous delegate in speakers list</td></tr>
+      <tr><td>&nbsp;</td></tr>
+      <tr><td><code>switch</code></td><td>Switch between rolling/general/voting speakers list</td></tr>
+      <tr><td><code>vote</code></td><td>Enter voting procedure</td></tr>
+      <tr><td><code>extend</code></td><td>Extend current delegate's speaking time</td></tr>
+      <tr><td><code>timer</code></td><td>Start large timer (for caucuses)</td></tr>
+      <tr><td><em>spacebar</em></td><td>Start/stop speaking timer</td></tr>
+    </table>
+    <br>
+    <p>
+    Confused? <a href="//github.com/benesch/mun.track/blob/master/README.md">Get more help!</a>
+    </p>
+    <br>
+    <aside>
+      mun.track is free software.
+      <a href="//github.com/benesch/mun.track">Download source.</a>
+    </aside>
+  </div>
+
+  <div id="vote" title="Voting">
+    <p id="vote-tally">For 0, Against 0, Abstaining 0</p>
+    <p id="vote-results" style="display: none;"></p>
+  </div>
+
+  <div id="timer" title="Timer">
+    <p>Test</p>
+  </div>
+
+  <div id="fullscreen" title="Full Screen">
+    <p>Press F11 for Full Screen</p>
+  </div>
+
+  <div id="update" title="Update Notice">
+    <p>mun.track has been updated!</p><br />
+    <p>Unfortunately, we've had to erase any existing data. Sorry for the inconvenience!</p>
+  </div>
+
+  <div id="controller">
+    <div id="console">
+      &gt; mun.track ready. <a href="javascript: process('?');">help?</a>
+    </div>
+    <input id="command" type="text" />
+  </div>
+</body>
+</html>
+
+

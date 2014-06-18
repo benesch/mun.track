@@ -1,0 +1,57 @@
+<!--
+Copyright (c) 2014 Nikhil Benesch <nikhil.benesch@gmail.com>
+
+This file is part of mun.track.
+
+mun.track is free software: you can redistribute it and/or modify it under the
+terms of the GNU Affero General Public License version 3 as published by the
+Free Software Foundation.
+
+mun.track is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along
+with mun.track. If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>mun.track remote</title>
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="http://mobile.muntrackapp.com/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io.connect("http://mobile.muntrackapp.com/");
+			socket.emit("code", prompt("code"));
+
+			socket.on("time", function(message) {
+				log.innerHTML += message + "<br />";
+			});
+
+			$(document).ready(function() {
+				$("#form").submit(function() {
+					socket.emit("command", $("#commands").val());
+					$("#commands").val("");
+
+					return false;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>mun.track remote</h1>
+		<form id="form">
+			<input id="commands" type="text" />
+			<input type="submit" />
+		</form>
+
+		<div id="log">
+			<p>LOG</p>
+		</div>
+	</body>
+</html>
+
+

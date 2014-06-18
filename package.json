@@ -1,0 +1,28 @@
+{
+  "name": "mun.track",
+  "version": "0.0.1",
+  "description": "Model UN conference tracker",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benesch/mun.track.git"
+  },
+  "keywords": [
+    "model",
+    "united",
+    "nations",
+    "un",
+    "conference",
+    "tracker",
+    "muntrack",
+    "dashboard"
+  ],
+  "author": "Nikhil Benesch <nikhil.benesch@gmail.com>",
+  "license": "AGPLv3",
+  "dependencies": {
+    "express": "^4.4.3"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
