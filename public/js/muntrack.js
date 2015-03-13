@@ -27,6 +27,7 @@ var callback = null;
 
 var country;
 var timer = null;
+var bigTimer = null;
 
 var list = 0;
 var quorum = null;
@@ -98,7 +99,7 @@ $(document).ready(function() {
 		width: 900, minHeight: 50,
 		resizable: false, draggable: false,
 		show: "fade", hide: "explode",
-		close: function() { print("mun.track ready"); $("#controller").css("zIndex", 1); $("#command").focus() },
+		close: function() { $('#timer').stop(true, true); print("mun.track ready"); $("#controller").css("zIndex", 1); $("#command").focus() },
 		autoOpen: false
 	});
 
@@ -195,6 +196,20 @@ function tick() {
 		timer = null;
 	}
 	publishTime();
+}
+
+function bigTick() {
+	var time = $('#timer').html().split(':');
+	var seconds = (parseInt(time[0], 10) * 60) + parseInt(time[1], 10) - 1;
+	console.log(seconds, seconds + 0);
+	if (seconds == 0) {
+		$('#timer').effect("shake", { times: 1000, distance: "10" }, 100);
+		clearInterval(bigTimer);
+		bigTimer = null;
+	}
+	var minutes = Math.floor(seconds / 60);
+	seconds = seconds % 60;
+	$('#timer').html(minutes + ":" + (seconds < 10 ? "0" + seconds : seconds));
 }
 
 function publishTime() {
@@ -346,10 +361,17 @@ function update() {
 	$("#update").dialog("open");
 }
 
-function startTimer() {
-	$("#timer").dialog("open");
+function startTimer(time) {
+	if (!time.match(/^\d{1,2}:\d{2}$/)) {
+		print("invalid time");
+		return;
+	}
+	$("#timer").html(time).dialog("open");
 	$("#controller").css("zIndex", 5000);
 	$("#command").focus();
+
+	clearInterval(bigTimer);
+	bigTimer = setInterval(bigTick, 1000);
 }
 
 function vote() {
